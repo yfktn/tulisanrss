@@ -45,7 +45,7 @@ class QueueCreateRSS
         $fileContents .= "\t</channel>\n";
         $fileContents .= "</rss>\n";
 
-        $file = File::put(storage_path('rss.xml'), $fileContents);
+        $file = File::put(storage_path('app/rss.xml'), $fileContents);
 
         // job setelah di jalankan harus di hapus!
         $job->delete();
