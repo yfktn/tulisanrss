@@ -20,3 +20,20 @@ To make it run on a shared host we need to use the Queue `database` driver and w
 ```
 */5 * * * * ~/domain/web/path/artisan queue:work --stop-when-empty >> /dev/null 2>&1
 ```
+
+## Add link to rss.xml
+
+As the output, the rss.xml file will be created in  your `storage/app` directory. You need to create a link to it in your public folder, using `ln -s` command.
+
+## Add htaccess rules
+
+To give access for our rss file, we need to add this rule to the beginning of our htaccess file.
+
+```
+RewriteEngine On
+
+##
+## Allow rss.xml
+##
+RewriteRule ^rss\.xml$ - [L]
+```
